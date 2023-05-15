@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300;1,400;1,600;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    background: linear-gradient(-45deg, #8baaaa, #ae8b9c, #868f96);
+    background-size: 400% 400%;
+    animation: gradient-bg 10s linear infinite;
+}
+
+@keyframes gradient-bg {
+	0% {
+		background-position: 0% 50%;
+	}
+
+	50% {
+		background-position: 100% 50%;
+	}
+    
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.header {
+    background-color: #eee;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 10%), 0 2px 2px rgb(0 0 0 / 6%), 0 0 2px rgb(0 0 0 / 7%);
+    padding: 20px;
+}
+
+.headline {
+    position: relative;
+    padding: 0;
+    width: 50%;
+    text-align: center;
+    color: #080808;
+    font-size: 26px;
+    font-weight: 700; 
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: auto;
+    padding-bottom: 13px;
+    -webkit-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+    animation: animate 2s linear infinite;
+}
+
+@keyframes animate  {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.headline:before {
+    background-color: #c50000;
+    content: '';
+    display: block;
+    height: 3px;
+    width: 20%;
+    margin-bottom: 5px;
+}
+
+.headline:after {
+    background-color: #c50000;
+    content: '';
+    display: block;
+    position:absolute;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    width: 20%;
+    margin-bottom: 0.25em;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 40px;
+}
+
+.gameboard {
+    height: 400px;
+    width: 400px;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    margin: 50px 0;
+}
+
+.square-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: black solid 5px;
+    border-right: black solid 5px;
+    font-size: 70px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+}
+
+.square-grid:nth-child(3n) {
+    border-right: none;
+}
+
+.square-grid:nth-child(n+7) {
+    border-bottom: none;
+}
+
+.hide {
+    display: none;
+    pointer-events: none !important;
+    position: absolute !important;
+    max-height: 0 !important;
+    opacity: 0 !important;
+}
+
+input {
+    background: #ffffff;
+    transition: all 200ms ease;
+    border-left: 0 solid transparent;
+    border: 0;
+    height: 55px;
+    margin: 10px;
+    padding: 0 50px;
+    border-radius: calc(5.8rem * 0.3);
+    box-shadow: 0 0 2rem rgb(0, 0, 0, 20%);
+}
+
+input::placeholder {
+    color: #393D47;
+    font-style: italic;
+    font-size: 20px;
+}
+
+.player1,
+.player2 {
+    font-size: 20px;
+    color: #393D47;
+}
+
+/* winner css */
+.display-winner {
+    font-size: 60px;
+    letter-spacing: -2px;
+    transition: 700ms ease;
+    font-variation-settings: "wght" 311;
+    margin-bottom: 0.8rem;
+    color: #080808;
+    outline: none;
+    text-align: center;
+    background: linear-gradient(to left, #FF0000 0%, #000000 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.display-winner:hover {
+    font-variation-settings: "wght" 582; 
+    letter-spacing: 2px;
+}
+
+/* buttons css */
+button {
+    background: #000;
+    color: #ffffff;
+    font-size: 15px;
+    z-index: 1;
+    margin: 10px 20px;
+    width: 200px;
+    padding: 10px 30px;
+    border: 2px solid #000;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+button:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    background: #e0e5ec;
+    transition: all 0.5s ease;
+}
+
+button:hover {
+    color: #000;
+}
+
+button:hover:after {
+    left: 0;
+    width: 100%;
+}
+
+button:active {
+    top: 2px;
+}
+
+/* media queries */
+@media (max-width: 425px) {
+    .headline {
+        width: 70%;
+    }
+
+    .main {
+        padding: 20px 0px;
+    }
+
+    input {
+        margin: 10px 0;
+        padding: 0 20px;
+    }
+
+    .gameboard {
+        height: 250px;
+        width: 250px;
+        margin: 30px 0;
+    }
+
+    .square-grid {
+        display: flex;
+        font-size: 50px;
+    }
+
+    .display-winner {
+        font-size: 40px;
+    }
+}
