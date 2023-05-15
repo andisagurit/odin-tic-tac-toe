@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+
+    <link rel="stylesheet" href="../odin-tic-tac-toe/style.css" />
+    <script type="text/javascript" src="../odin-tic-tac-toe/javascript.js" defer></script>
+
+    <link rel="icon" href="./images/tictactoe-icon.png" type="image/x-icon" />
+</head>
+<body>
+    <div class="header">
+        <h1 class="headline">Players, Enter Your Names To Proceed</h1>
+    </div>
+    <div class="main">
+        <div class="controls">
+            <form class="control-panel">
+                <input type="text" id="player1" class="player1" placeholder="Player X's Name" required />
+                <input type="text" id="player2" class="player2" placeholder="Player O's Name" required />
+                <div class="buttons">
+                    <button type="button" class="start-button">Start Game</button>
+                    <button type="button" class="reset-button">Reset Game</button>
+                </div>
+            </form>
+        </div>
+        <div class="gameboard hide">
+            <div class="square-grid" id="0"></div>
+            <div class="square-grid" id="1"></div>
+            <div class="square-grid" id="2"></div>
+            <div class="square-grid" id="3"></div>
+            <div class="square-grid" id="4"></div>
+            <div class="square-grid" id="5"></div>
+            <div class="square-grid" id="6"></div>
+            <div class="square-grid" id="7"></div>
+            <div class="square-grid" id="8"></div>
+        </div>
+        <div class="display-winner"></div>
+    </div>
+</body>
+</html>
